@@ -1,0 +1,693 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #fffaf6;
+  color: #555;
+}
+
+/* =====================
+   ファーストビュー
+===================== */
+
+.hero {
+  position: relative;
+  padding: 96px 16px;
+  overflow: hidden;
+}
+
+/* 背景写真 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom,
+      rgba(250, 244, 239, 0.15) 0%,
+      rgba(250, 244, 239, 0.45) 55%,
+      rgba(250, 244, 239, 0.75) 100%),
+    url("../images/hero-back.png");
+  /* ←生成した画像 */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9) saturate(0.9);
+  z-index: -1;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 左テキスト */
+.hero-text {
+  flex: 1;
+}
+
+/* キャッチコピー */
+.hero-text h1 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.hero-catch-small {
+  font-size: 40px;
+  font-weight: 700;
+  color: #4A3B35;
+}
+
+.hero-catch-large {
+  font-size: 42px;
+  font-weight: 700;
+  color: #4A3B35;
+}
+
+/* サブコピー */
+.hero-sub {
+  margin-top: 24px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #8E807A;
+}
+
+/* CTAボタン */
+.btn-primary {
+  display: inline-block;
+  margin-top: 32px;
+  width: 240px;
+  height: 56px;
+  line-height: 56px;
+  background: #E66A7A;
+  color: #fff;
+  text-align: center;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transform: 0.3s ease;
+  box-shadow: 0.3s ease;
+}
+
+/* hover時 */
+.btn-primary:hover {
+  background: #DE6F82;
+  /* 少し濃く */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 右画像 */
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+  width: 90%;
+  border-radius: 24px;
+}
+
+.hero-palm {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  width: 240px;
+  height: 240px;
+  background: url("../images/yashi.png") no-repeat center / contain;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+
+/* =====================
+   スマホ対応
+===================== */
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-catch-small {
+    font-size: 28px;
+  }
+
+  .hero-catch-large {
+    font-size: 30px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-image {
+    margin-top: 32px;
+  }
+}
+
+/* お悩みセクション */
+.worries {
+  background: #FAF4EF;
+  padding: 80px 16px;
+}
+
+.worries-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 見出し */
+.worries-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 16px;
+}
+
+.worries-lead {
+  font-size: 28px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 48px;
+}
+
+/* カード全体 */
+.worries-cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: nowrap;
+}
+
+/* カード1枚 */
+.worry-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px 24px;
+
+  width: 280px;
+  height: 320px;
+
+  /* ドロップシャドウ */
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* アイコン */
+.worry-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #F6C1CC;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* カードタイトル */
+.worry-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 24px;
+}
+
+/* 説明文 */
+.worry-card p {
+  font-size: 14px;
+  color: #8E807A;
+  line-height: 1.6;
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .worries-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .worries-title {
+    font-size: 24px;
+  }
+
+  .worries-lead {
+    font-size: 20px;
+  }
+}
+
+/* 強みセクション */
+.strengths {
+  background: #FAF4EF;
+  padding: 80px 16px;
+}
+
+.strengths-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* タイトル */
+.strengths-title {
+  position: relative;
+  font-size: 32px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 48px;
+}
+
+.plumeria {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  opacity: 0.4;
+  transform: translateY(-50%);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.plumeria.left {
+  left: 100px;
+}
+
+.plumeria.right {
+  right: 100px;
+}
+
+.reason-title:hover .plumeria.left {
+  transform: translateY(-55%) translateX(-6px) rotate(-6deg);
+  opacity: 0.6;
+}
+
+.reason-title:hover .plumeria.right {
+  transform: translateY(-45%) translateX(6px) rotate(6deg);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .plumeria {
+    display: none;
+    animation: none;
+  }
+}
+
+
+/* カード全体 */
+.strengths-cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* カード1枚 */
+.strength-card {
+  background: #ffffff;
+  width: 240px;
+  height: 220px;
+  border-radius: 24px;
+  padding: 24px 16px;
+
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* アイコン */
+.strength-icon {
+  font-size: 36px;
+  color: #E66A7A;
+  margin-bottom: 12px;
+}
+
+/* 見出し */
+.strength-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 8px;
+}
+
+/* 説明文 */
+.strength-card p {
+  font-size: 14px;
+  color: #8E807A;
+  line-height: 1.6;
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .strengths-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* メニュー紹介 */
+.menu {
+  background: #FAF4EF;
+  padding: 80px 16px;
+  position: relative;
+}
+
+/* 共通設定 */
+.bg-plumeria {
+  position: absolute;
+  width: 200px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+}
+
+/* 左 */
+.bg-plumeria.left {
+  top: -60px;
+  left: 40px;
+  transform: rotate(-12deg);
+}
+
+/* 右 */
+.bg-plumeria.right {
+  bottom: -60px;
+  right: 40px;
+  transform: rotate(-12deg);
+}
+
+.menu-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ラベル共通 */
+.menu-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  width: 60px;
+  height: 24px;
+  border-radius: 12px;
+
+  background: #F6C1CC;
+  color: #4A3B35;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* タイトル */
+.menu-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 16px;
+}
+
+.menu-lead {
+  font-size: 16px;
+  color: #8E807A;
+  margin-bottom: 48px;
+}
+
+/* カード全体 */
+.menu-cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+/* カード1枚 */
+.menu-card {
+  position: relative;
+
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 画像 */
+.menu-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* カード内の基本テキスト（説明文用） */
+.menu-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #8E807A;
+  margin: 0 16px 32px;
+}
+
+/* 通常価格 */
+.menu-card .menu-price {
+  font-size: 13px;
+  color: #9A9088;
+  margin: 0 16px 12px;
+}
+
+/* 初回価格（強調） */
+.menu-card .menu-price-first {
+  font-size: 15px;
+  color: #E66A7A;
+  font-weight: bold;
+  margin: 0 16px 24px;
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .menu-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* メニューカード内CTAボタン */
+.menu-btn {
+  display: block;
+  width: 300px;
+  height: 37px;
+
+  margin: 8px auto 24px;
+
+  background: #E88A9A;
+  color: #FFFFFF;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 37px;
+
+  border-radius: 26px;
+  text-decoration: none;
+}
+
+.menu-btn:hover {
+  background: #DE6F82;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    width: 100%;
+  }
+}
+
+/* お客様の声 */
+.voice {
+  background: #FFF7F3;
+  padding: 80px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ホヌ装飾 */
+.bg-honu {
+  position: absolute;
+  top: 30%;
+  left: 50px;
+
+  transform: translateY(-50%);
+
+  width: 140px;
+  opacity: 0.25;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.voice-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 見出し */
+.voice-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4A3B35;
+  margin-bottom: 8px;
+}
+
+.voice-lead {
+  font-size: 14px;
+  color: #8E807A;
+  margin-bottom: 48px;
+}
+
+/* カード全体 */
+.voice-cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+/* カード1枚 */
+.voice-card {
+  width: 280px;
+  height: 300px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px 20px;
+
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 吹き出しアイコン */
+.voice-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+/* 星 */
+.voice-stars {
+  font-size: 16px;
+  color: #F0B400;
+  margin-bottom: 12px;
+}
+
+/* コメント */
+.voice-comment {
+  font-size: 14px;
+  color: #6F5F59;
+  line-height: 1.6;
+  margin-bottom: auto;
+}
+
+/* 属性 */
+.voice-meta {
+  font-size: 12px;
+  color: #9A9088;
+  margin-top: 16px;
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .voice-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 最終CTA */
+.final-cta {
+  background: #FBEAEC;
+  padding: 64px 16px;
+}
+
+.final-cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* タイトル */
+.final-cta-title {
+  font-size: 18px;
+  font-weight: 500;
+  /* Medium */
+  color: #4A3B35;
+  margin-bottom: 16px;
+}
+
+/* 説明文 */
+.final-cta-text {
+  font-size: 13px;
+  color: #8E807A;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* CTAボタン */
+.final-cta-btn {
+  display: block;
+  width: 300px;
+  height: 37px;
+
+  margin: 0 auto 12px;
+
+  background: #E88A9A;
+  color: #FFFFFF;
+
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 37px;
+
+  border-radius: 26px;
+  text-decoration: none;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.final-cta-btn:hover {
+  background: #DE6F82;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 768px) {
+
+  .btn-primary:hover,
+  .cta-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
+/* 補足 */
+.final-cta-note {
+  font-size: 11px;
+  color: #8E807A;
+}
+
+/* SP対応 */
+@media (max-width: 768px) {
+  .final-cta-btn {
+    width: 100%;
+  }
+}
